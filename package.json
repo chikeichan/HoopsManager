@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chikeichan/HoopsManager.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify client/src/app.js -o client/build/app.js -d"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chikeichan/HoopsManager/issues"
   },
-  "homepage": "https://github.com/chikeichan/HoopsManager"
+  "homepage": "https://github.com/chikeichan/HoopsManager",
+  "dependencies": {
+    "browserify": "^11.0.0",
+    "express": "^4.13.1"
+  }
 }
