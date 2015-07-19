@@ -15,14 +15,14 @@ EventBus.prototype.subscribe = function(event, func) {
 };
 
 EventBus.prototype.publish = function(event, ctx, args) {
-    ctx = ctx || this;
+    ctx = ctx || null;
     args = args || null;
 
     var cbQueue = this._events[event];
 
     if (Array.isArray(cbQueue)) {
         cbQueue.forEach(function(cb) {
-            cb.call(ctx, args);
+            cb.call(this, ctx, args);
         });
     }
 };
