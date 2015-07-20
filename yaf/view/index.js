@@ -6,50 +6,57 @@ View._constructor = function(opts) {
 };
 
 View._constructor.prototype._initialize = function(opts) {
+    this.refIndex = {};
+    this.el = document.createElement(this.tagName);
+
+    if(this.className) {
+        this.el.className = this.className;
+    }
+
+    this.refIndex['root'] = this.el;
+
     this.eventBus = opts.eventBus || new EventBus();
+    this.tagName = opts.tagName || 'div';
+    this.className = opts.className || null;
 
     if(typeof this.initialize === 'function') {
         this.initialize.apply(this, arguments);
     }
 };
 
-View._constructor.prototype.render = function() {
-    var element = {};
-    var index = {};
-    var tagName = this.tagName || 'div';
-    var className = this.className || null;
+View._constructor.prototype.renderTmpl = function(tag, template) {
+    var el;
 
-    element = {
-        el: document.createElement(tagName),
-    };
+    template = template || this.template;
 
-    if(className) {
-        element.el.className = className;
+    if (!tag) {
+        el = document.createElement(this.tagName);
+
+        if(this.className) {
+            el.className = this.className;
+        }
+    } else {
+        el = createOneElement(tag);
     }
 
-    index['root'] = element.el;
+    createElements.call(this, template, el);
 
-    createElements(this.template, element);
-
-    this.el = element.el;
-    this.index = index;
-
-    return this;
+    return el;
 
     function createElements(template, base) {
         for (var tag in template) {
             if (isValidTag(tag)) {
-                base[tag] = createOneElement(tag);
-                base.el.appendChild(base[tag].el);
-                createElements(template[tag], base[tag]);
+                var el = createOneElement(tag);
+                base.appendChild(el)
+                createElements.call(this, template[tag], el);
             }
 
             if (tag === 'style') {
-                addStyle(base.el, template[tag]);
+                addStyle(base, template[tag]);
             }
 
             if (tag === 'ref') {
-                index[template[tag]] = base.el;
+                this.refIndex[template[tag]] = base;
             }
         }
     }
@@ -58,17 +65,15 @@ View._constructor.prototype.render = function() {
         var parsed = parseTag(tag);
         var tagName = parsed[0];
 
-        var base = {
-            el: document.createElement(tagName)
-        }
+        var el = document.createElement(tagName)
 
         if (parsed[1] === '.') {
-            base.el.className = parsed[2];
+            el.className = parsed[2];
         } else if (parsed[1] === '#') {
-            base.el.id = parsed[2];
+            el.id = parsed[2];
         }
 
-        return base;
+        return el;
     }
 
     function addStyle(el, style) {

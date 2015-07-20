@@ -13,8 +13,10 @@ var PlayerCtrl = Yaf.Controller.extend({
     },
 
     initialize: function() {
-        this.eventBus.subscribe('changed', function(a) {
-            this.view.postRender(this.model.attributes);
+        this.view.updateInfo(this.model.attributes);
+
+        this.model.eventBus.subscribe('changed', function(a) {
+            this.view.updateInfo(this.model.attributes);
         }.bind(this));
     },
 
@@ -38,6 +40,30 @@ var textStyle = {
 var PlayerView = Yaf.View.extend({
     tagName: 'div',
     className: 'player',
+    style: {
+        'root' : {
+            width: '200px',
+            height: '100px',
+            backgroundColor: 'white',
+            border: '1px solid black',
+            display: 'flex',
+            'flex-flow': 'row nowrap',
+            padding: '8px'
+        },
+
+        'div.avatar': {
+            style: {
+                width: '50px',
+                height: '50px',
+                backgroundColor: 'blue',
+                borderRadius: '50%'
+            }
+        },
+
+        'p#name': textStyle,
+        'p#height': textStyle,
+        'p#weight': textStyle
+    }
     template: {
         'div.avatar': {
             style: {
@@ -74,24 +100,28 @@ var PlayerView = Yaf.View.extend({
         }
     },
 
-    postRender: function(opts) {
-        this.index['name'].textContent = opts.name;
-        this.index['height'].textContent = opts.height;
-        this.index['weight'].textContent = opts.weight;
+    initialize: function() {
+        this.render();
+    },
+
+    render: function() {
+        this.el = this.renderTmpl();
+    },
+
+    updateInfo: function(opts) {
+        this.refIndex['name'].textContent = opts.name;
+        this.refIndex['height'].textContent = opts.height;
+        this.refIndex['weight'].textContent = opts.weight;
     }
 })
 
-var testView = new PlayerView({
-    eventBus: testModel.eventBus
-});
+var testView = new PlayerView({});
 
-testView.render().postRender(testModel.attributes);
 document.body.appendChild(testView.el)
 
 var testController = new PlayerCtrl({
     model: testModel,
-    view: testView,
-    eventBus: testModel.eventBus
+    view: testView
 });
 
 module.exports = Player;
