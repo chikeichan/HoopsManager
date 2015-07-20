@@ -1,6 +1,6 @@
 var Player = Yaf.Model.extend({});
 
-var testModel = new Player({
+testModel = new Player({
     height: 62,
     weight: 178,
     name: 'Jacky Chan'
@@ -31,14 +31,15 @@ var PlayerCtrl = Yaf.Controller.extend({
     },
 
     updateInfo: function() {
-        this.view.renderInfo(this.model.attributes);
+        this.view.renderInfo(this.model.read());
     }
 });
 
 var textStyle = {
     'font-family': 'arial',
     margin: '4px 12px',
-    'font-size': '12px'
+    'font-size': '12px',
+    cursor: 'pointer'
 };
 
 var cardStyle = {
@@ -62,7 +63,7 @@ var PlayerView = Yaf.View.extend({
     tagName: 'div',
 
     className: 'player',
-    
+
     style: {
         'root' : cardStyle,
         'div.avatar': avatarStyle,

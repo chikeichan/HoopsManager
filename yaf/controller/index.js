@@ -1,3 +1,4 @@
+var IdGenerator = require('../helpers/IdGenerator')('controller');
 var Controller = {};
 
 Controller._constructor = function(opts) {
@@ -5,6 +6,7 @@ Controller._constructor = function(opts) {
 };
 
 Controller._constructor.prototype._initialize = function(opts) {
+    this.id = IdGenerator();
     this.model = opts.model || null;
     this.view = opts.view || null;
 

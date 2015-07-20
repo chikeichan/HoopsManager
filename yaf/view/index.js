@@ -1,4 +1,5 @@
 var EventBus = require('../eventBus');
+var IdGenerator = require('../helpers/IdGenerator')('view');
 var View = {};
 
 View._constructor = function(opts) {
@@ -6,9 +7,11 @@ View._constructor = function(opts) {
 };
 
 View._constructor.prototype._initialize = function(opts) {
+    this.id = IdGenerator();
     this.refIndex = {};
 
     this.eventBus = opts.eventBus || new EventBus();
+    this.eventBus.register(this.id);
 
     if(typeof this.initialize === 'function') {
         this.initialize.apply(this, arguments);
@@ -96,6 +99,13 @@ View._constructor.prototype.renderTmpl = function(tag, template) {
     function isValidTag(tag) {
         return tag !== 'style' && tag !== 'ref' && tag !== 'onClick';
     }
+};
+
+View._constructor.prototype.destroy = function() {
+    this.el.remove();
+    this.el = null;
+    this.refIndex = {};
+    this.eventBus.unsubscribeAll();
 };
 
 module.exports = View;
