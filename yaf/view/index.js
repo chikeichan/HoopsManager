@@ -7,17 +7,8 @@ View._constructor = function(opts) {
 
 View._constructor.prototype._initialize = function(opts) {
     this.refIndex = {};
-    this.el = document.createElement(this.tagName);
-
-    if(this.className) {
-        this.el.className = this.className;
-    }
-
-    this.refIndex['root'] = this.el;
 
     this.eventBus = opts.eventBus || new EventBus();
-    this.tagName = opts.tagName || 'div';
-    this.className = opts.className || null;
 
     if(typeof this.initialize === 'function') {
         this.initialize.apply(this, arguments);
@@ -32,9 +23,14 @@ View._constructor.prototype.renderTmpl = function(tag, template) {
     if (!tag) {
         el = document.createElement(this.tagName);
 
-        if(this.className) {
+        if (this.className) {
             el.className = this.className;
         }
+
+        if (this.style['root']) {
+            addStyle(el, this.style['root']);
+        }
+
     } else {
         el = createOneElement(tag);
     }
@@ -48,15 +44,18 @@ View._constructor.prototype.renderTmpl = function(tag, template) {
             if (isValidTag(tag)) {
                 var el = createOneElement(tag);
                 base.appendChild(el)
+                if (this.style[tag]) {
+                    addStyle(el, this.style[tag]);
+                }
                 createElements.call(this, template[tag], el);
-            }
-
-            if (tag === 'style') {
-                addStyle(base, template[tag]);
             }
 
             if (tag === 'ref') {
                 this.refIndex[template[tag]] = base;
+            }
+
+            if (tag === 'onClick') {
+                addEvents.call(this, base, 'click' ,template[tag]);
             }
         }
     }
@@ -82,6 +81,12 @@ View._constructor.prototype.renderTmpl = function(tag, template) {
         }
     }
 
+    function addEvents(el, originEvt, newEvt) {
+        el.addEventListener(originEvt, function(e) {
+            this.eventBus.publish(newEvt, this, e);
+        }.bind(this));
+    }
+
     function parseTag(tag) {
         tag = tag.replace(/[.#]/, function(d) { return ',' + d + ','})
                  .split(',');
@@ -89,7 +94,7 @@ View._constructor.prototype.renderTmpl = function(tag, template) {
     }
 
     function isValidTag(tag) {
-        return tag !== 'style' && tag !== 'ref';
+        return tag !== 'style' && tag !== 'ref' && tag !== 'onClick';
     }
 };
 

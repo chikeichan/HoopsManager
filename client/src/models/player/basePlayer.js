@@ -7,17 +7,17 @@ var testModel = new Player({
 });
 
 var PlayerCtrl = Yaf.Controller.extend({
-    events: {
-        'click height': 'addHeight',
-        'click weight': 'subtractWeight'
+    viewEvents: {
+        'click:p#height': 'addHeight',
+        'click:p#weight': 'subtractWeight'
+    },
+
+    modelEvents: {
+        'changed': 'updateInfo'
     },
 
     initialize: function() {
-        this.view.updateInfo(this.model.attributes);
-
-        this.model.eventBus.subscribe('changed', function(a) {
-            this.view.updateInfo(this.model.attributes);
-        }.bind(this));
+        this.updateInfo();
     },
 
     addHeight: function() {
@@ -28,6 +28,10 @@ var PlayerCtrl = Yaf.Controller.extend({
     subtractWeight: function() {
         var weight = this.model.get('weight');
         this.model.set('weight', weight - 1);
+    },
+
+    updateInfo: function() {
+        this.view.renderInfo(this.model.attributes);
     }
 });
 
@@ -35,68 +39,52 @@ var textStyle = {
     'font-family': 'arial',
     margin: '4px 12px',
     'font-size': '12px'
+};
+
+var cardStyle = {
+    width: '200px',
+    height: '100px',
+    backgroundColor: 'white',
+    border: '1px solid black',
+    display: 'flex',
+    'flex-flow': 'row nowrap',
+    padding: '8px'
+};
+
+var avatarStyle = {
+    width: '50px',
+    height: '50px',
+    backgroundColor: 'blue',
+    borderRadius: '50%'
 }
 
 var PlayerView = Yaf.View.extend({
     tagName: 'div',
+
     className: 'player',
+    
     style: {
-        'root' : {
-            width: '200px',
-            height: '100px',
-            backgroundColor: 'white',
-            border: '1px solid black',
-            display: 'flex',
-            'flex-flow': 'row nowrap',
-            padding: '8px'
-        },
-
-        'div.avatar': {
-            style: {
-                width: '50px',
-                height: '50px',
-                backgroundColor: 'blue',
-                borderRadius: '50%'
-            }
-        },
-
+        'root' : cardStyle,
+        'div.avatar': avatarStyle,
         'p#name': textStyle,
         'p#height': textStyle,
         'p#weight': textStyle
-    }
-    template: {
-        'div.avatar': {
-            style: {
-                width: '50px',
-                height: '50px',
-                backgroundColor: 'blue',
-                borderRadius: '50%'
-            }
-        },
+    },
 
+    template: {
+        'div.avatar': {},
         'div.info' : {
             'p#name': {
-                ref: 'name',
-                style: textStyle
+                ref: 'name'
             },
             'p#height': {
                 ref: 'height',
-                style: textStyle
+                onClick: 'click:p#height'
             },
             'p#weight': {
                 ref: 'weight',
-                style: textStyle
+                onClick: 'click:p#weight'
             }
-        },
-
-        style: {
-            width: '200px',
-            height: '100px',
-            backgroundColor: 'white',
-            border: '1px solid black',
-            display: 'flex',
-            'flex-flow': 'row nowrap',
-            padding: '8px'
         }
     },
 
@@ -108,10 +96,10 @@ var PlayerView = Yaf.View.extend({
         this.el = this.renderTmpl();
     },
 
-    updateInfo: function(opts) {
-        this.refIndex['name'].textContent = opts.name;
-        this.refIndex['height'].textContent = opts.height;
-        this.refIndex['weight'].textContent = opts.weight;
+    renderInfo: function(info) {
+        this.refIndex['name'].textContent = info.name;
+        this.refIndex['height'].textContent = info.height;
+        this.refIndex['weight'].textContent = info.weight;
     }
 })
 

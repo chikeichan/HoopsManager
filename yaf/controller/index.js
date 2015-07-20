@@ -16,13 +16,16 @@ Controller._constructor.prototype._initialize = function(opts) {
 };
 
 Controller._constructor.prototype._addEventListeners = function() {
-    for (var evt in this.events) {
-        var parsed = evt.split(' ');
-        var evtName = parsed[0];
-        var evtEl   = this.view.refIndex[parsed[1]];
-        var evtFn   = this[this.events[evt]] = this[this.events[evt]].bind(this);
-        
-        evtEl.addEventListener(evtName, evtFn);
+    for (var evt in this.viewEvents) {
+        var handler = this.viewEvents[evt];
+        var fn = this[handler] = this[handler].bind(this)
+        this.view.eventBus.subscribe(evt, fn);
+    }
+
+    for (var evt in this.modelEvents) {
+        var handler = this.modelEvents[evt];
+        var fn = this[handler] = this[handler].bind(this)
+        this.model.eventBus.subscribe(evt, fn);
     }
 };
 
