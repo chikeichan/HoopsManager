@@ -20,6 +20,29 @@ var HeaderView = Trio.View.extend({
             margin: '4px',
             background: 'url(http://sportsunbiased.com/wp-content/uploads/2014/12/lebron-james.png) no-repeat center',
             borderRadius: '50%'
+        },
+
+        'div.action-buttons': {
+            display: 'flex',
+            'flex-flow': 'row nowrap',
+            flex: '1 1 auto',
+            'justify-content': 'space-between'
+        },
+
+        'div.button': {
+            height: '12px',
+            width: '60px',
+            padding: '8px 4px',
+            margin: '0 4px',
+            'font-family': 'Arial',
+            'font-size': '12px',
+            backgroundColor: 'rgb(0, 156, 180)',
+            textAlign: 'center',
+            borderRadius: '2px'
+        },
+
+        'span#text': {
+            color: 'white'
         }
     },
 
@@ -29,7 +52,9 @@ var HeaderView = Trio.View.extend({
         'div.info' : {},
         'div.action-buttons': {
             ref: 'buttons',
-            'div.button': {}
+            'div.button': {
+                'span#text': {}
+            }
         },
         'div.preferences': {}
     },
@@ -51,6 +76,7 @@ var HeaderView = Trio.View.extend({
             var buttonTmpl = this.template['div.action-buttons']['div.button'];
             var button = this.renderTmpl('div.button', buttonTmpl);
             this.addClass(button, btn);
+            button.querySelector('#text').textContent = btn;
             this.refIndex.buttons.appendChild(button);
         }.bind(this));
     }
