@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify client/src/app.js -o client/build/app.js -d"
+    "build": "browserify client/src/lib.js -o client/build/lib.js -d"
   },
   "author": "",
   "license": "ISC",
