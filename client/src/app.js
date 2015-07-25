@@ -1,6 +1,14 @@
-var a = Trio.import('layoutView', './src/modules/layout/view/layoutView.js');
-Trio.start(function() {
-    var gEventBus = Trio.getGlobalEventBus(); 
-    console.log('Starting...', gEventBus);
+var p = new Trio.Vow();
 
-});
+setTimeout(function() {
+    p.resolve('hi');
+}, 5000);
+
+p.then(function(arg) {
+    console.log(arg);
+    return 'two';
+})
+
+p.then(function(arg) {
+    console.log(arg);
+})
