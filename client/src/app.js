@@ -1,14 +1,16 @@
-var p = new Trio.Vow();
+window.p = Trio.Vow();
 
 setTimeout(function() {
-    p.resolve('hi');
+    p.resolve(1);
 }, 5000);
 
-p.then(function(arg) {
-    console.log(arg);
-    return 'two';
-})
+p.promise
+  .then(plusOne)
+  .then(plusOne)
+  .then(plusOne)
+  .then(plusOne)
 
-p.then(function(arg) {
-    console.log(arg);
-})
+function plusOne(num) {
+    console.log(num);
+    return num + 1;
+}
