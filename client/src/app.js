@@ -1,16 +1,7 @@
-window.p = Trio.Vow();
+Trio.import({
+    'layoutModule': './src/modules/layout/layout.js'
+})
 
-setTimeout(function() {
-    p.resolve(1);
-}, 5000);
-
-p.promise
-  .then(plusOne)
-  .then(plusOne)
-  .then(plusOne)
-  .then(plusOne)
-
-function plusOne(num) {
-    console.log(num);
-    return num + 1;
-}
+.then(function(ret) {
+    console.log(ret);
+});
