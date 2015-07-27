@@ -1,20 +1,27 @@
 Trio.export('layoutView', function(done) {
     var LayoutView = Trio.View.extend({
+
         tagName: 'hoop-layout',
 
         style: {
+            ':host': {
+                'display': 'flex',
+                'flex': '1 1 auto',
+                'width': '100%',
+                'height': '100%',
+                'flex-flow': 'column nowrap',
+            },
             'div.header': {
                 'display': 'flex',
                 'background-color': '#3E3E3E',
                 'width': '100%',
                 'height': '100%',
-                'cursor': 'row-resize'
+                'flex-shrink': '0'
             },
             'div.nav': {
                 'display': 'flex',
                 'background-color': '#5F5F5F',
-                'width': '100%',
-                'cursor': 'col-resize'
+                'width': '100%'
             },
             'div.canvas': {
                 'display': 'flex',
@@ -26,20 +33,40 @@ Trio.export('layoutView', function(done) {
                 'flex': '1 1 auto',
                 'flex-flow': 'row nowrap',
                 'height': '100%'
+            },
+            'div.row-resizable': {
+                'cursor': 'row-resize',
+                'width': '100%',
+                'height': '4px',
+                'position': 'relative',
+                'top': '100%'
+            },
+            'div.col-resizable': {
+                'cursor': 'col-resize',
+                'width': '4px',
+                'position': 'relative',
+                'left': '100%'
             }
         },
 
         template: {
             'div.header': {
-                ref: 'header'
+                ref: 'header',
+                'div.row-resizable': {
+                    'onClick': 'resize'
+                }
             },
             'div.main': {
                 'div.nav': {
-                    ref: 'nav'
+                    ref: 'nav',
+                    'div.col-resizable': {
+                        'onClick': 'resize'
+                    }
                 },
                 'div.canvas': {}
             }
         }
     });
+
     done(LayoutView);
 });

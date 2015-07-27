@@ -3,5 +3,6 @@ Trio.import({
 })
 
 .then(function(ret) {
-    console.log(ret);
+        var layout = ret.layoutModule;
+        console.log(layout)
 });
