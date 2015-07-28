@@ -1,4 +1,5 @@
 Trio.export('layoutModule', function(done) {
+
     Trio.import({
         'layoutModel'      : './src/modules/layout/model/layoutModel.js',
         'layoutView'       : './src/modules/layout/view/layoutView.js',
@@ -22,4 +23,5 @@ Trio.export('layoutModule', function(done) {
     })
 
     .done(done)
+
 });

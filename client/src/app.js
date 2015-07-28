@@ -3,6 +3,8 @@ Trio.import({
 })
 
 .then(function(ret) {
-        var layout = ret.layoutModule;
-        console.log(layout)
+    var layout = ret.layoutModule;
+
+
+    layout.create();
 });
