@@ -1,4 +1,4 @@
-Trio.export('layoutTemplate', function(done) {
+Trio.Module.export('layoutTemplate', function(done) {
     var template = {
 
         'div.header': {

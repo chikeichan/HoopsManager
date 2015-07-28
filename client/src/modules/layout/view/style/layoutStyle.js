@@ -1,4 +1,4 @@
-Trio.export('layoutStyle', function(done) {
+Trio.Module.export('layoutStyle', function(done) {
 
     var style = {
         ':host': {
