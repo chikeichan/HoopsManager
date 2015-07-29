@@ -26,7 +26,7 @@ Trio.Module.export('layoutController', function(done) {
         },
 
         render: function() {
-            var d = this.model.read();
+            var d = this.model.clone();
             this.view.render(d);
         },
 

@@ -3,7 +3,7 @@ Trio.Module.import({
     'layoutTemplate'       : './src/modules/layout/view/template/layoutTemplate.js'
 })
 
-.and.export('layoutView', function(ret) {
+.and.export('layoutView', function(ret, done) {
 
     var LayoutView = Trio.View.extend({
 
@@ -21,5 +21,5 @@ Trio.Module.import({
         }
     })
 
-    return LayoutView;
+    done(LayoutView);
 });

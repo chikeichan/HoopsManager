@@ -10,21 +10,22 @@ Trio.Module.export('layoutStyle', function(done) {
         },
         'div.header': {
             'display': 'flex',
-            'background-color': '#3E3E3E',
+            'background-color': Trio.Stylizer.getVariable('header-color'),
             'width': '100%',
             'height': '100%',
             'flex-shrink': '0'
         },
         'div.nav': {
             'display': 'flex',
-            'background-color': '#5F5F5F',
+            'background-color': Trio.Stylizer.getVariable('base-color'),
             'width': '100%',
             'flex-shrink': '0'
         },
         'div.canvas': {
             'display': 'flex',
-            'background-color': '#999999',
+            'background-color': Trio.Stylizer.getVariable('canvas-color'),
             'width': '100%',
+            'pointer-event': 'none'
         },
         'div.main': {
             'display': 'flex',
@@ -32,19 +33,8 @@ Trio.Module.export('layoutStyle', function(done) {
             'flex-flow': 'row nowrap',
             'height': '100%'
         },
-        'div.row-resizable': {
-            'cursor': 'row-resize',
-            'width': '100%',
-            'height': '4px',
-            'position': 'relative',
-            'top': '100%'
-        },
-        'div.col-resizable': {
-            'cursor': 'col-resize',
-            'width': '4px',
-            'position': 'relative',
-            'left': '100%'
-        }
+        'div.row-resizable': Trio.Stylizer.getVariable('row-resizable'),
+        'div.col-resizable': Trio.Stylizer.getVariable('col-resizable')
     };
 
     done(style);

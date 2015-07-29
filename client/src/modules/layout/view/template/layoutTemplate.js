@@ -15,7 +15,9 @@ Trio.Module.export('layoutTemplate', function(done) {
                     'mousedown': 'resizeX'
                 }
             },
-            'div.canvas': {}
+            'div.canvas': {
+                ref: 'canvas'
+            }
         }
     };
 
