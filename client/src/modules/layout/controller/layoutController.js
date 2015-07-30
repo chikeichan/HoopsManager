@@ -16,8 +16,8 @@ Trio.Module.export('layoutController', function() {
         debounce: false,
 
         initialize: function() {
-            document.addEventListener('mouseup', this.resized.bind(this));
-            document.addEventListener('mousemove', this.resizing.bind(this));
+            this.resized = this.resized.bind(this);
+            this.resizing = this.resizing.bind(this);
         },
 
         create: function() {
@@ -31,25 +31,29 @@ Trio.Module.export('layoutController', function() {
         },
 
         resizeY: function(ctx, e) {
+            this._addEventListener();
             this.isResizing = 'y';
         },
 
         resizeX: function(ctx, e) {
+            this._addEventListener();
             this.isResizing = 'x';
+        },
+
+        _addEventListener: function() {
+            document.addEventListener('mouseup', this.resized);
+            document.addEventListener('mousemove', this.resizing);
+        },
+
+        _removeEventListener: function() {
+            document.removeEventListener('mouseup', this.resized);
+            document.removeEventListener('mousemove', this.resizing);
         },
 
         resizing: function(e) {
             var val;
-
-            if (this.debounce) {
-                return;
-            }
             
             this.debounce = true;
-
-            setTimeout(function() {
-                this.debounce = false;
-            }.bind(this), 30)
 
             if (this.isResizing === 'x') {
                 val = e.clientX;
@@ -62,9 +66,11 @@ Trio.Module.export('layoutController', function() {
                 val = val < 50 ? 50 : val;
                 this.model.set('y', val);
             }
+
         },
 
         resized: function(e) {
+            this._removeEventListener();
             this.isResizing = false;
         }
 
