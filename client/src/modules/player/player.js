@@ -4,7 +4,7 @@ Trio.Module.import({
     'playerController' : './src/modules/player/controller/playerController.js'
 })
 
-.and.export('playerModule', function(ret, done) {
+.and.export('playerModule', function(ret) {
     var model = new ret.playerModel({});
 
     var view = new ret.playerView({});
@@ -14,5 +14,5 @@ Trio.Module.import({
         view: view
     });
 
-    done(controller);
+    return controller;
 });

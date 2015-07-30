@@ -1,4 +1,4 @@
-Trio.Module.export('playerModel', function(done) {
+Trio.Module.export('playerModel', function() {
     var PlayerModel = Trio.Model.extend({
         defaults: {
             lastName: 'Chan',
@@ -12,5 +12,5 @@ Trio.Module.export('playerModel', function(done) {
         }
     });
 
-    done(PlayerModel);
+    return PlayerModel;
 });

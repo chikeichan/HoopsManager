@@ -4,7 +4,7 @@ Trio.Module.import({
     'layoutController' : './src/modules/layout/controller/layoutController.js'
 })
 
-.and.export('layoutModule', function(ret, done) {
+.and.export('layoutModule', function(ret) {
     var model = new ret.layoutModel({});
 
     var view = new ret.layoutView({});
@@ -14,5 +14,5 @@ Trio.Module.import({
         view: view
     });
 
-    done(controller);
+    return controller;
 });

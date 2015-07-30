@@ -1,4 +1,4 @@
-Trio.Module.export('playerView', function(done) {
+Trio.Module.export('playerView', function() {
     var PlayerView = Trio.View.extend({
         tagName: 'hoop-player',
 
@@ -31,6 +31,7 @@ Trio.Module.export('playerView', function(done) {
                 'margin-right': '8px'
             }
         },
+        
         template: {
             'div.player-header': {
                 'img.avatar': {
@@ -73,5 +74,5 @@ Trio.Module.export('playerView', function(done) {
         }
     });
 
-    done(PlayerView);
+    return PlayerView;
 });

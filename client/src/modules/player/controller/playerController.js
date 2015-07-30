@@ -1,4 +1,4 @@
-Trio.Module.export('playerController', function(done) {
+Trio.Module.export('playerController', function() {
     var PlayerController = Trio.Controller.extend({
         updateInfo: function() {
             var d = this.model.clone();
@@ -6,5 +6,5 @@ Trio.Module.export('playerController', function(done) {
         }
     });
 
-    done(PlayerController);
+    return PlayerController;
 });

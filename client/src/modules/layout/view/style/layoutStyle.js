@@ -1,4 +1,4 @@
-Trio.Module.export('layoutStyle', function(done) {
+Trio.Module.export('layoutStyle', function() {
 
     var style = {
         ':host': {
@@ -37,6 +37,6 @@ Trio.Module.export('layoutStyle', function(done) {
         'div.col-resizable': Trio.Stylizer.getVariable('col-resizable')
     };
 
-    done(style);
+    return style;
 
 });

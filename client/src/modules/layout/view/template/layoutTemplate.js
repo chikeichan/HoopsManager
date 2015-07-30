@@ -1,4 +1,4 @@
-Trio.Module.export('layoutTemplate', function(done) {
+Trio.Module.export('layoutTemplate', function() {
     var template = {
 
         'div.header': {
@@ -21,5 +21,5 @@ Trio.Module.export('layoutTemplate', function(done) {
         }
     };
 
-    done(template);
+    return template;
 });

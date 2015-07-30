@@ -1,4 +1,4 @@
-Trio.Module.export('layoutModel', function(done) {
+Trio.Module.export('layoutModel', function() {
     var LayoutModel = Trio.Model.extend({
         defaults: {
             x: 200,
@@ -6,5 +6,5 @@ Trio.Module.export('layoutModel', function(done) {
         }
     });
     
-    done(LayoutModel);
+    return LayoutModel;
 });

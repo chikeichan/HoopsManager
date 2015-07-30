@@ -1,4 +1,4 @@
-Trio.Module.export('layoutController', function(done) {
+Trio.Module.export('layoutController', function() {
 
     var LayoutController = Trio.Controller.extend({
 
@@ -70,6 +70,6 @@ Trio.Module.export('layoutController', function(done) {
 
     });
 
-    done(LayoutController);
+    return LayoutController;
 
 });
