@@ -13,6 +13,6 @@ Trio.Stylizer.registerVariables('col-resizable', {
     'left': '100%'
 });
 
-Trio.Stylizer.registerVariables('header-color', '#3E3E3A');
+Trio.Stylizer.registerVariables('header-color', '#272727');
 Trio.Stylizer.registerVariables('canvas-color', '#EEEEEE');
-Trio.Stylizer.registerVariables('base-color', '#5F5F5F');
+Trio.Stylizer.registerVariables('base-color', '#414141');

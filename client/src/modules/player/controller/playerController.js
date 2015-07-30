@@ -1,5 +1,8 @@
 Trio.Module.export('playerController', function() {
     var PlayerController = Trio.Controller.extend({
+        modelEvents: {
+            'change': 'updateInfo'
+        },
         updateInfo: function() {
             var d = this.model.clone();
             this.view.render({

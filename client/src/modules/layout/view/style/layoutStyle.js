@@ -25,7 +25,8 @@ Trio.Module.export('layoutStyle', function() {
             'display': 'flex',
             'background-color': Trio.Stylizer.getVariable('canvas-color'),
             'width': '100%',
-            'pointer-event': 'none'
+            'pointer-event': 'none',
+            'overflow': 'auto'
         },
         'div.main': {
             'display': 'flex',

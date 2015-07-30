@@ -1,14 +1,14 @@
 Trio.Module.export('playerModel', function() {
     var PlayerModel = Trio.Model.extend({
         defaults: {
-            lastName: 'Chan',
-            firstName: 'Jacky',
-            dateOfBirth: 509702400000,
-            avatarUrl: 'https://avatars3.githubusercontent.com/u/8507735?v=3&s=460',
-            height: 63,
-            weight: 178,
-            placeOfBirth: 'Hong Kong',
-            university: 'UC San Diego'
+            lastName: 'James',
+            firstName: 'LeBron',
+            dateOfBirth: 473241600000,
+            avatarUrl: 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/1966.png&w=350&h=254',
+            height: 80,
+            weight: 250,
+            placeOfBirth: 'Akron, OH',
+            university: 'St-Vincent St-Mary'
         }
     });
 
