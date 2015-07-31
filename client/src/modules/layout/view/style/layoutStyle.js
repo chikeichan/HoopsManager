@@ -25,7 +25,6 @@ Trio.Module.export('layoutStyle', function() {
             'display': 'flex',
             'background-color': Trio.Stylizer.getVariable('canvas-color'),
             'width': '100%',
-            'pointer-event': 'none',
             'overflow': 'auto'
         },
         'div.main': {
@@ -34,6 +33,7 @@ Trio.Module.export('layoutStyle', function() {
             'flex-flow': 'row nowrap',
             'height': '100%'
         },
+        'div.row-resizable': Trio.Stylizer.getVariable('row-resizable'),
         'div.row-resizable': Trio.Stylizer.getVariable('row-resizable'),
         'div.col-resizable': Trio.Stylizer.getVariable('col-resizable')
     };

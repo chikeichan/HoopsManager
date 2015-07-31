@@ -23,3 +23,4 @@ Trio.Module.import({
 
     return LayoutView;
 });
+
