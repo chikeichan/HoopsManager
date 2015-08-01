@@ -20,12 +20,12 @@ Trio.Module.import({
             this.refIndex['height'].textContent      = d.heightFt;
             this.refIndex['weight'].textContent      = d.weightLb;
             this.refIndex['birthPlace'].textContent  = d.placeOfBirth;
-            this.refIndex['position'].textContent  = d.position;
-            this.refIndex['team'].textContent  = d.team;
-            this.refIndex['morale'].textContent  = d.morale;
-            this.refIndex['fatigue'].textContent  = d.fatigue;
-            this.refIndex['salary'].textContent  = d.salary;
-            this.refIndex['contract'].textContent  = d.contract;
+            this.refIndex['position'].textContent    = d.position;
+            this.refIndex['team'].textContent        = d.team;
+            this.refIndex['morale'].textContent      = d.morale;
+            this.refIndex['fatigue'].textContent     = d.fatigue;
+            this.refIndex['salary'].textContent      = d.salary;
+            this.refIndex['contract'].textContent    = d.contract;
         }
     });
 

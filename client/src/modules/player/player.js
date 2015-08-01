@@ -13,6 +13,6 @@ Trio.Module.import({
         model: model,
         view: view
     });
-
+    window.model = model
     return controller;
 });

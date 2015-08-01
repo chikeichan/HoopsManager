@@ -15,4 +15,4 @@ Trio.Stylizer.registerVariables('col-resizable', {
 
 Trio.Stylizer.registerVariables('header-color', 'black');
 Trio.Stylizer.registerVariables('canvas-color', 'rgba(255, 255, 255, 0.1)');
-Trio.Stylizer.registerVariables('base-color', 'rgba(0, 184, 255, 0.25)');
+Trio.Stylizer.registerVariables('base-color', 'rgba(0, 184, 255, 0.5)');
