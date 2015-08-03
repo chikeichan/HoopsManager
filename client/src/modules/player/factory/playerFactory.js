@@ -1,5 +1,5 @@
-Trio.Module.export('playerModel', function() {
-    var PlayerModel = Trio.Model.extend({
+Trio.Module.export('playerFactory', function() {
+    var PlayerFactory = Trio.Factory.extend({
         defaults: {
             lastName: 'James',
             firstName: 'LeBron',
@@ -20,5 +20,5 @@ Trio.Module.export('playerModel', function() {
         }
     });
 
-    return PlayerModel;
+    return PlayerFactory;
 });
