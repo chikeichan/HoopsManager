@@ -9,7 +9,14 @@ Trio.Module.export('playerResource', function() {
             },
             type: 'POST',
             payload: payload,
-            indexBy: 'objectId'
+            indexBy: 'objectId',
+            parse: function(rsp) {
+                rsp = JSON.parse(rsp);
+                for (var k in payload) {
+                    rsp[k] = payload[k];
+                }
+                return rsp;
+            }
         })
     };
 

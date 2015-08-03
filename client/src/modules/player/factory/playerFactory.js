@@ -8,11 +8,12 @@ Trio.Module.export('playerFactory', function() {
             dateOfBirth: Infinity,
             height: 0,
             weight: 0
-
         },
         initialize: function() {
-            this.resource = Trio.Resource.get('playerResource');
-            this.resource.readOne('kGFqJ5BIal')
+            var player = Trio.Resource.get('playerResource');
+            this.sync(player, '2aEmDhcqrg');
+
+            player.readOne('2aEmDhcqrg')
                 .then(function(rsp) {
                     this.set(rsp[0])
                 }.bind(this));
