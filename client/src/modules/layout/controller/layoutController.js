@@ -2,11 +2,6 @@ Trio.Module.export('layoutController', function() {
 
     var LayoutController = Trio.Controller.extend({
 
-        viewEvents: {
-            'resizeY': 'resizeY',
-            'resizeX': 'resizeX'
-        },
-
         modelEvents: {
             'change': 'render'
         },
@@ -15,9 +10,15 @@ Trio.Module.export('layoutController', function() {
 
         debounce: false,
 
-        initialize: function() {
+        initialize: function(opts) {
             this.resized = this.resized.bind(this);
             this.resizing = this.resizing.bind(this);
+            this.nav = opts.nav;
+            this.canvas = opts.canvas;
+            this.header = opts.header;
+
+            this.header.eventBus.subscribe('resizeY', this.resizeY.bind(this));
+            this.nav.eventBus.subscribe('resizeX', this.resizeX.bind(this));
         },
 
         create: function() {
@@ -27,7 +28,8 @@ Trio.Module.export('layoutController', function() {
 
         render: function() {
             var d = this.model.clone();
-            this.view.render(d);
+            this.header.el.style['height'] = d.y + 'px';
+            this.nav.el.style['width'] = d.x + 'px';
         },
 
         resizeY: function(ctx, e) {

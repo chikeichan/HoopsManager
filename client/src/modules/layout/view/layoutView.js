@@ -1,6 +1,5 @@
 Trio.Module.import({
-    'layoutStyle'       : './src/modules/layout/view/style/layoutStyle.js',
-    'layoutTemplate'    : './src/modules/layout/view/template/layoutTemplate.js'
+    'layoutStyle'       : './src/modules/layout/view/style/layoutStyle.js'
 })
 
 .and.export('layoutView', function(ret) {
@@ -11,15 +10,8 @@ Trio.Module.import({
 
         isWebComponent: true,
 
-        style: ret.layoutStyle,
-
-        template: ret.layoutTemplate,
-
-        render: function(d) {
-            this.refIndex.header.style.height = '' + d.y + 'px';
-            this.refIndex.nav.style.width     = '' + d.x + 'px';
-        }
-    })
+        style: ret.layoutStyle
+    });
 
     return LayoutView;
 });
