@@ -34,53 +34,16 @@ Trio.Module.export('playerStyle', function() {
     }
 
     var style = {
-        ':host': {
-            'margin': '12px',
-            'width': '100%',
-            'font-family': 'Helvetica',
-            'font-size': '18px',
-            'height': '100%',
-            'background-color': 'rgba(255, 255, 255, 0.25)'
-        },
-
-        'div.main': {
-            'display': 'flex',
-            'background-color': 'rgba(0, 0, 0, 0.5)',
-            'margin': '0px -8px',
-            'align-items': 'center',
-            'flex-flow': 'row nowrap',
-            'height': '58px'
-        },
-
-        'div.player-header': {
-            'display': 'flex',
-            'padding': '8px',
-            'border-bottom': '1px solid rgba(0, 0, 0, 0.2)',
-            'flex-flow': 'column nowrap'
-        },
         'div.avatar': {
             'width': '240px',
             'height': '240px'
         },
-        'div.player-info': {
-            'display': 'flex',
-            'width': '100%',
-            'flex-flow': 'row nowrap'
-        },
+
         'div.info': {
             'display': 'flex',
             'margin-left': '8px'
         },
-        'div.name': {
-            'color': 'white',
-            'padding': '12px 24px',
-            'margin': '0 -8px 8px -8px',
-            'text-transform': 'uppercase',
-            'display': 'flex',
-            'flex': '1 1 auto',
-            'font-size': '30px',
-            'align-items': 'center'
-        },
+
         'p.age': vinfo,
         'p.height': vinfo,
         'p.weight': vinfo,
@@ -99,6 +62,7 @@ Trio.Module.export('playerStyle', function() {
             'border-top-right-radius': '2px',
             'border-top-left-radius': '2px'
         },
+        
         'div.age': container,
         'div.height': container,
         'div.weight': container,

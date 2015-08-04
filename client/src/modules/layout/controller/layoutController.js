@@ -35,11 +35,13 @@ Trio.Module.export('layoutController', function() {
         resizeY: function(ctx, e) {
             this._addEventListener();
             this.isResizing = 'y';
+            this.header.el.style['backgroundColor'] = 'rgba(255, 255, 255, 0.9)';
         },
 
         resizeX: function(ctx, e) {
             this._addEventListener();
             this.isResizing = 'x';
+            this.nav.el.style['backgroundColor'] = 'rgba(255, 255, 255, 0.8)';
         },
 
         _addEventListener: function() {
@@ -55,8 +57,6 @@ Trio.Module.export('layoutController', function() {
         resizing: function(e) {
             var val;
             
-            this.debounce = true;
-
             if (this.isResizing === 'x') {
                 val = e.clientX;
                 val = val > 300 ? 300 : val;
@@ -74,6 +74,8 @@ Trio.Module.export('layoutController', function() {
         resized: function(e) {
             this._removeEventListener();
             this.isResizing = false;
+            this.nav.el.style['backgroundColor'] = '';
+            this.header.el.style['backgroundColor'] = '';
         }
 
     });

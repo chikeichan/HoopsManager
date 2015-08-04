@@ -5,21 +5,21 @@ Trio.Module.export('playerController', function() {
         },
         updateInfo: function() {
             var d = this.model.clone();
-            this.view.render({
-                avatarUrl    : d.avatarUrl,
-                fullName     : d.firstName + ' <span class="jersey-number">' + d.jerseyNumber + '</span> ' + d.lastName,
-                age          : '' + Math.floor((new Date().getTime() - d.dateOfBirth)/31536000000),
-                heightFt     : '' + Math.floor(d.height/12) + 'ft' + d.height % 12,
-                weightLb     : d.weight + 'lb',
-                placeOfBirth : d.placeOfBirth,
-                university   : d.university,
-                position     : d.position,
-                team         : d.team,
-                morale       : d.morale,
-                fatigue      : d.fatigue,
-                salary       : convertMillions(d.salary),
-                contract     : d.contractLength + 'YR ' + convertMillions(d.contractAmount)
-            });
+            // this.view.render({
+            //     avatarUrl    : d.avatarUrl,
+            //     fullName     : d.firstName + ' <span class="jersey-number">' + d.jerseyNumber + '</span> ' + d.lastName,
+            //     age          : '' + Math.floor((new Date().getTime() - d.dateOfBirth)/31536000000),
+            //     heightFt     : '' + Math.floor(d.height/12) + 'ft' + d.height % 12,
+            //     weightLb     : d.weight + 'lb',
+            //     placeOfBirth : d.placeOfBirth,
+            //     university   : d.university,
+            //     position     : d.position,
+            //     team         : d.team,
+            //     morale       : d.morale,
+            //     fatigue      : d.fatigue,
+            //     salary       : convertMillions(d.salary),
+            //     contract     : d.contractLength + 'YR ' + convertMillions(d.contractAmount)
+            // });
         }
     });
 

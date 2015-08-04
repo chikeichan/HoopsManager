@@ -1,4 +1,3 @@
-
 Trio.Module.import({
     'playerStyle'       : './src/modules/player/view/style/playerStyle.js',
     'playerTemplate'       : './src/modules/player/view/template/playerTemplate.js'

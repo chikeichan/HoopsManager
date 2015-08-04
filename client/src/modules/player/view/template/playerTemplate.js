@@ -1,11 +1,10 @@
 Trio.Module.export('playerTemplate', function() {
     var template = {
-        'div.player-header': {
-            'div.main': {
                 'div.name': {
                     ref: 'name'
                 },
                 'div.info': {
+                    ref: 'info',
                     'div.age': {
                         'div.title': {
                             'textContent': 'Age'
@@ -38,64 +37,63 @@ Trio.Module.export('playerTemplate', function() {
                             ref: 'birthPlace'
                         }
                     }
-                }
-            },
-            'div.player-info': {
-                'div.avatar': {
-                    ref: 'avatar'
                 },
-                'div.attributes': {
-                    'div.position': {
-                        'p.tag': {
-                            'textContent': 'POSITION'
-                        },
-                        'p.position': {
-                            ref: 'position'
-                        }
+                'div.player-info': {
+                    ref: 'playerInfo',
+                    'div.avatar': {
+                        ref: 'avatar'
                     },
-                    'div.team': {
-                        'p.tag': {
-                            'textContent': 'TEAM'
+                    'div.attributes': {
+                        'div.position': {
+                            'p.tag': {
+                                'textContent': 'POSITION'
+                            },
+                            'p.position': {
+                                ref: 'position'
+                            }
                         },
-                        'p.team': {
-                            ref: 'team'
-                        }
-                    },
-                    'div.morale': {
-                        'p.tag': {
-                            'textContent': 'MORALE'
+                        'div.team': {
+                            'p.tag': {
+                                'textContent': 'TEAM'
+                            },
+                            'p.team': {
+                                ref: 'team'
+                            }
                         },
-                        'p.morale': {
-                            ref: 'morale'
-                        }
-                    },
-                    'div.fatigue': {
-                        'p.tag': {
-                            'textContent': 'FATIGUE'
+                        'div.morale': {
+                            'p.tag': {
+                                'textContent': 'MORALE'
+                            },
+                            'p.morale': {
+                                ref: 'morale'
+                            }
                         },
-                        'p.fatigue': {
-                            ref: 'fatigue'
-                        }
-                    },
-                    'div.salary': {
-                        'p.tag': {
-                            'textContent': 'SALARY'
+                        'div.fatigue': {
+                            'p.tag': {
+                                'textContent': 'FATIGUE'
+                            },
+                            'p.fatigue': {
+                                ref: 'fatigue'
+                            }
                         },
-                        'p.salary': {
-                            ref: 'salary'
-                        }
-                    },
-                    'div.contract': {
-                        'p.tag': {
-                            'textContent': 'CONTRACT'
+                        'div.salary': {
+                            'p.tag': {
+                                'textContent': 'SALARY'
+                            },
+                            'p.salary': {
+                                ref: 'salary'
+                            }
                         },
-                        'p.contract': {
-                            ref: 'contract'
-                        }
-                    },
+                        'div.contract': {
+                            'p.tag': {
+                                'textContent': 'CONTRACT'
+                            },
+                            'p.contract': {
+                                ref: 'contract'
+                            }
+                        },
+                    }
                 }
-            }
-        }
     }
 
     return template;

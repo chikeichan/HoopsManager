@@ -13,16 +13,8 @@ Trio.Module.import({
     var nav = new ret.navView({});
     var header = new ret.headerView({});
     var canvas = new ret.canvasView({});
-
     var view = new ret.layoutView({});
     var main = document.createElement('div');
-    main.className = 'main';
-    main.appendChild(nav.el);
-    main.appendChild(canvas.el);
-    
-    view.host.appendChild(header.el);
-    view.host.appendChild(main);
-
     var controller = new ret.layoutController({
         model: factory,
         view: view,
@@ -30,7 +22,13 @@ Trio.Module.import({
         header: header,
         canvas: canvas
     });
-
+    
+    main.className = 'main';
+    main.appendChild(nav.el);
+    main.appendChild(canvas.el);
+    
+    view.host.appendChild(header.el);
+    view.host.appendChild(main);
 
     return controller;
 });

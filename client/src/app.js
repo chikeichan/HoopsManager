@@ -11,12 +11,11 @@ Trio.Module.import({
 .then(function(ret) {
     var layout = ret.layoutModule;
     var playerModule = ret.playerModule;
+    var baseModule = ret.baseModule;
 
     var canvasEl;
     
     layout.create();
     layout.canvas.refIndex['canvas'].appendChild(playerModule.view.el);
-    
-    playerModule.updateInfo();
 
 });
