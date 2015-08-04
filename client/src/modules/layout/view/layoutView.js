@@ -1,6 +1,6 @@
 Trio.Module.import({
     'layoutStyle'       : './src/modules/layout/view/style/layoutStyle.js',
-    'layoutTemplate'       : './src/modules/layout/view/template/layoutTemplate.js'
+    'layoutTemplate'    : './src/modules/layout/view/template/layoutTemplate.js'
 })
 
 .and.export('layoutView', function(ret) {
