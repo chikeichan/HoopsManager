@@ -4,7 +4,7 @@ Trio.Module.import({
 
 .and.export('navView', function(ret) {
 
-    var LayoutView = Trio.View.extend({
+    var NavView = Trio.View.extend({
 
         tagName: 'hoop-nav',
 
@@ -22,6 +22,6 @@ Trio.Module.import({
         }
     })
 
-    return LayoutView;
+    return NavView;
 });
 

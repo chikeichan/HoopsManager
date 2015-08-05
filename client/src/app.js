@@ -16,6 +16,6 @@ Trio.Module.import({
     var canvasEl;
     
     layout.create();
-    layout.canvas.refIndex['canvas'].appendChild(playerModule.view.el);
+    // layout.canvas.refIndex['canvas'].appendChild(playerModule.view.el);
 
 });

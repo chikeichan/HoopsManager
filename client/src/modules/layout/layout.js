@@ -1,7 +1,7 @@
 Trio.Module.import({
     'layoutFactory'      : './src/modules/layout/factory/layoutFactory.js',
     'layoutView'       : './src/modules/layout/view/layoutView.js',
-    'layoutController' : './src/modules/layout/controller/layoutController.js',
+    'layoutService' : './src/modules/layout/service/layoutService.js',
     'headerView'        : './src/modules/layout/view/headerView.js',
     'canvasView'        : './src/modules/layout/view/canvasView.js',
     'navView'           : './src/modules/layout/view/navView.js',
@@ -15,8 +15,8 @@ Trio.Module.import({
     var canvas = new ret.canvasView({});
     var view = new ret.layoutView({});
     var main = document.createElement('div');
-    var controller = new ret.layoutController({
-        model: factory,
+    var service = new ret.layoutService({
+        factory: factory,
         view: view,
         nav: nav,
         header: header,
@@ -30,5 +30,5 @@ Trio.Module.import({
     view.host.appendChild(header.el);
     view.host.appendChild(main);
 
-    return controller;
+    return service;
 });

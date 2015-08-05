@@ -4,7 +4,7 @@ Trio.Module.import({
 
 .and.export('canvasView', function(ret) {
 
-    var LayoutView = Trio.View.extend({
+    var CanvasView = Trio.View.extend({
 
         tagName: 'hoop-canvas',
 
@@ -19,6 +19,6 @@ Trio.Module.import({
         }
     })
 
-    return LayoutView;
+    return CanvasView;
 });
 

@@ -1,5 +1,5 @@
-Trio.Module.export('playerController', function() {
-    var PlayerController = Trio.Controller.extend({
+Trio.Module.export('playerService', function() {
+    var PlayerService = Trio.Service.extend({
         modelEvents: {
             'change': 'updateInfo'
         },
@@ -23,7 +23,7 @@ Trio.Module.export('playerController', function() {
         }
     });
 
-    return PlayerController;
+    return PlayerService;
 
     function convertMillions(num) {
         return '$' + Math.floor(num/1000000) + '.' + Math.floor(num%1000000/10000) + 'M'

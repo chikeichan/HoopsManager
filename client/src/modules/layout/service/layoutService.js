@@ -1,9 +1,17 @@
-Trio.Module.export('layoutController', function() {
+Trio.Module.export('layoutService', function() {
 
-    var LayoutController = Trio.Controller.extend({
+    var LayoutService = Trio.Service.extend({
 
-        modelEvents: {
+        factoryEvents: {
             'change': 'render'
+        },
+
+        headerEvents: {
+            'resizeY': 'resizeY'
+        },
+
+        navEvents: {
+            'resizeX': 'resizeX'
         },
 
         isResizing: false,
@@ -16,9 +24,12 @@ Trio.Module.export('layoutController', function() {
             this.nav = opts.nav;
             this.canvas = opts.canvas;
             this.header = opts.header;
+            this.factory = opts.factory;
+            this.view = opts.view;
 
-            this.header.eventBus.subscribe('resizeY', this.resizeY.bind(this));
-            this.nav.eventBus.subscribe('resizeX', this.resizeX.bind(this));
+            this.subscribeAll(this.nav, this.navEvents);
+            this.subscribeAll(this.header, this.headerEvents);
+            this.subscribeAll(this.factory, this.factoryEvents);
         },
 
         create: function() {
@@ -27,7 +38,7 @@ Trio.Module.export('layoutController', function() {
         },
 
         render: function() {
-            var d = this.model.clone();
+            var d = this.factory.clone();
             this.header.el.style['height'] = d.y + 'px';
             this.nav.el.style['width'] = d.x + 'px';
         },
@@ -35,7 +46,7 @@ Trio.Module.export('layoutController', function() {
         resizeY: function(ctx, e) {
             this._addEventListener();
             this.isResizing = 'y';
-            this.header.el.style['backgroundColor'] = 'rgba(255, 255, 255, 0.9)';
+            this.header.el.style['backgroundColor'] = 'rgba(255, 255, 255, 1)';
         },
 
         resizeX: function(ctx, e) {
@@ -61,12 +72,12 @@ Trio.Module.export('layoutController', function() {
                 val = e.clientX;
                 val = val > 300 ? 300 : val;
                 val = val < 100 ? 100 : val;
-                this.model.set('x', val);
+                this.factory.set('x', val);
             } else if (this.isResizing === 'y') {
                 val = e.clientY;
                 val = val > 80 ? 80 : val;
                 val = val < 50 ? 50 : val;
-                this.model.set('y', val);
+                this.factory.set('y', val);
             }
 
         },
@@ -80,6 +91,6 @@ Trio.Module.export('layoutController', function() {
 
     });
 
-    return LayoutController;
+    return LayoutService;
 
 });

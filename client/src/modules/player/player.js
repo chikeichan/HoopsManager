@@ -2,7 +2,7 @@ Trio.Module.import({
     'baseModule'       : './src/modules/base/baseModule/base.js',
     'playerFactory'      : './src/modules/player/factory/playerFactory.js',
     'playerView'       : './src/modules/player/view/playerView.js',
-    'playerController' : './src/modules/player/controller/playerController.js'
+    'playerService' : './src/modules/player/service/playerService.js'
 })
 
 .and.export('playerModule', function(ret) {
@@ -15,10 +15,10 @@ Trio.Module.import({
     view.refIndex['secondaryTitle'].appendChild(playerView.refIndex['info'])
     view.refIndex['content'].appendChild(playerView.refIndex['playerInfo'])
 
-    var controller = new ret.playerController({
+    var service = new ret.playerService({
         model: factory,
         view: view
     });
 
-    return controller;
+    return service;
 });

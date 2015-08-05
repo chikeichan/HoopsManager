@@ -4,7 +4,7 @@ Trio.Module.import({
 
 .and.export('headerView', function(ret) {
 
-    var LayoutView = Trio.View.extend({
+    var HeaderView = Trio.View.extend({
 
         tagName: 'hoop-header',
 
@@ -22,6 +22,6 @@ Trio.Module.import({
         }
     })
 
-    return LayoutView;
+    return HeaderView;
 });
 
