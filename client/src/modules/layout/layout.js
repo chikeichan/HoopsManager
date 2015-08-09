@@ -1,34 +1,31 @@
 Trio.Module.import({
-    'layoutFactory'      : './src/modules/layout/factory/layoutFactory.js',
-    'layoutView'       : './src/modules/layout/view/layoutView.js',
-    'layoutService' : './src/modules/layout/service/layoutService.js',
-    'headerView'        : './src/modules/layout/view/headerView.js',
-    'canvasView'        : './src/modules/layout/view/canvasView.js',
-    'navView'           : './src/modules/layout/view/navView.js',
+    'layoutFactory'          : './src/modules/layout/factory/layoutFactory.js',
+    'layoutComponent'        : './src/modules/layout/component/layoutComponent.js',
+    'layoutService'          : './src/modules/layout/service/layoutService.js',
 })
 
 .and.export('layoutModule', function(ret) {
-    var factory = new ret.layoutFactory({});
+    // var factory = new ret.layoutFactory({});
 
-    var nav = new ret.navView({});
-    var header = new ret.headerView({});
-    var canvas = new ret.canvasView({});
-    var view = new ret.layoutView({});
-    var main = document.createElement('div');
-    var service = new ret.layoutService({
-        factory: factory,
-        view: view,
-        nav: nav,
-        header: header,
-        canvas: canvas
-    });
+    // var nav = new ret.navComponent({});
+    // var header = new ret.headerComponent({});
+    // var canvas = new ret.canvasComponent({});
+    // var component = new ret.layoutComponent({});
+    // var main = document.createElement('div');
+    // var service = new ret.layoutService({
+    //     factory: factory,
+    //     component: component,
+    //     nav: nav,
+    //     header: header,
+    //     canvas: canvas
+    // });
     
-    main.className = 'main';
-    main.appendChild(nav.el);
-    main.appendChild(canvas.el);
+    // main.className = 'main';
+    // main.appendChild(nav.el);
+    // main.appendChild(canvas.el);
     
-    view.host.appendChild(header.el);
-    view.host.appendChild(main);
+    // component.host.appendChild(header.el);
+    // component.host.appendChild(main);
 
-    return service;
+    // return service;
 });
