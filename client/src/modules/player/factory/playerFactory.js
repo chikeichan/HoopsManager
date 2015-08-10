@@ -26,7 +26,6 @@ Trio.Module.export('playerFactory', function() {
             player.readOne('2aEmDhcqrg')
                 .then(function(rsp) {
                     this.setAll(rsp[0])
-                    this.eventBus.publish('update:player');
                 }.bind(this));
         },
 
@@ -34,6 +33,7 @@ Trio.Module.export('playerFactory', function() {
             this.setTitle(d);
             this.setVital(d);
             this.setPlayerInfo(d);
+            this.eventBus.publish('update:player');
         },
 
         setTitle: function(d) {
