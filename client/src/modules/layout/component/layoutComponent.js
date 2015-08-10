@@ -16,10 +16,11 @@ Trio.Module.import({
             'mousedown .col-resizable': 'resizeX'
         },
         onCreate: function() {
-            this.resized = this.resized.bind(this);
-            this.resizing = this.resizing.bind(this);
-            this.nav = this.shadowRoot.querySelector('#nav');
-            this.header = this.shadowRoot.querySelector('#header');
+            this.resized    = this.resized.bind(this);
+            this.resizing   = this.resizing.bind(this);
+            this.nav        = this.shadowRoot.querySelector('#nav');
+            this.header     = this.shadowRoot.querySelector('#header');
+            this.canvas     = this.shadowRoot.querySelector('#canvas');
         },
 
         resizeY: function(e) {
@@ -60,14 +61,23 @@ Trio.Module.import({
         },
 
         setNav: function(val) {
+            this.navSize = val;
             this.nav.style.width = val + 'px';
         },
 
         setHeader: function(val) {
+            this.headerSize = val;
             this.header.style.height = val + 'px';
         },
 
         resized: function(e) {
+            var evt = new CustomEvent('resized', {
+                detail: {
+                    x: this.navSize,
+                    y: this.headerSize
+                }
+            });
+            this.dispatchEvent(evt);
             this.removeResizeListeners();
             this.isResizing = false;
         }

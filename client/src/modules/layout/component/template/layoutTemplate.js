@@ -8,9 +8,8 @@ Trio.Module.export('layoutTemplate', function() {
             .create('div#nav')
                 .create('div.col-resizable').append()
             .append()
-            .create('div#canvas')
-        .append()
-    .end();
+            .create('div#canvas').append()
+        .appendLast();
 
     return tmpl;
 });

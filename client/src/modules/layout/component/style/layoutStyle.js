@@ -5,26 +5,25 @@ Trio.Module.export('layoutStyle', function() {
            'flex': '1 1 auto',
            'width': '100%',
            'height': '100%',
-           'flex-flow': 'column nowrap',
+           'flex-flow': 'column nowrap'
        },
        '#header': {
            'display': 'flex',
            'background-color': Trio.Stylizer.getVariable('header-color'),
            'width': '100%',
-           'height': '50px',
+           'height': '100px',
            'flex-shrink': '0'
        },
        '#nav': {
            'display': 'flex',
            'background-color': Trio.Stylizer.getVariable('base-color'),
-           'width': '200px',
+           'width': '100px',
            'flex-shrink': '0'
        },
        '#canvas': {
            'display': 'flex',
            'background-color': Trio.Stylizer.getVariable('canvas-color'),
            'width': '100%',
-           'pointer-event': 'none',
            'overflow': 'auto'
        },
        '#main': {
