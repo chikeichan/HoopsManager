@@ -10,7 +10,8 @@ Trio.Module.export('playerStyle', function() {
             'display': 'flex',
             'flex-flow': 'column wrap',
             'margin': '12px',
-            'height': '216px',
+            'height': '200px',
+            'width': '300px',
             'align-items': 'flex-start'
         },
         'div.value': {

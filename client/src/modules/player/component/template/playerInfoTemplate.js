@@ -9,7 +9,7 @@ Trio.Module.export('playerInfoTemplate', function() {
                     .create('div.value').text(tagValue).append()
                 .append()
             .done()
-        .appendLast();
+        .appendLast()
 
     return tmpl;
 
