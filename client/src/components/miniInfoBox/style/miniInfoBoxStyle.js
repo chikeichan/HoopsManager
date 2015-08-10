@@ -1,4 +1,5 @@
 Trio.Module.export('miniInfoBoxStyle', function() {
+    var themeColor = Trio.Stylizer.getVariable('theme-color');
     var style = {
       ':host': {
           'color': 'white',
@@ -8,7 +9,7 @@ Trio.Module.export('miniInfoBoxStyle', function() {
       '.mini-info-box': {
           'display': 'flex',
           'flex-direction': 'column',
-          'background-color': 'rgba(0, 184, 255, 1)',
+          'background-color': themeColor,
           'border-radius': '2px'
       },
       'div.title': {
@@ -24,7 +25,7 @@ Trio.Module.export('miniInfoBoxStyle', function() {
       'div.value': {
           'display': 'flex',
           'margin': '0 4px',
-          'background-color': 'rgba(0, 184, 255, 1)',
+          'background-color': themeColor,
           'flex-flow': 'column nowrap',
           'align-items': 'center',
           'border-radius': '2px',

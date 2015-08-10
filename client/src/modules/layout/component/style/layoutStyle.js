@@ -1,4 +1,5 @@
 Trio.Module.export('layoutStyle', function() {
+    var themeColor = Trio.Stylizer.getVariable('theme-color')
     var style = {
        ':host': {
            'display': 'flex',
@@ -16,13 +17,13 @@ Trio.Module.export('layoutStyle', function() {
        },
        '#nav': {
            'display': 'flex',
-           'background-color': Trio.Stylizer.getVariable('base-color'),
+           'background-color': Trio.Stylizer.toRGBa(themeColor, 0.5),
            'width': '100px',
            'flex-shrink': '0'
        },
        '#canvas': {
            'display': 'flex',
-           'background-color': Trio.Stylizer.getVariable('canvas-color'),
+           'background-color': Trio.Stylizer.toRGBa(themeColor, 0.03),
            'width': '100%',
            'overflow': 'auto'
        },

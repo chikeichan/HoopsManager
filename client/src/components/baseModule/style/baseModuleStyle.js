@@ -1,4 +1,5 @@
 Trio.Module.export('baseModuleStyle', function() {
+    var themeColor = Trio.Stylizer.getVariable('theme-color');
     var style = {
        ':host': {
           'display': 'flex',
@@ -41,7 +42,7 @@ Trio.Module.export('baseModuleStyle', function() {
         },
         
         '.jersey-number': {
-          'color': 'rgba(0, 184, 255, 1)',
+          'color': themeColor,
           'font-size': '40px',
           'margin': '0 4px',
           'font-weight': 'bold'

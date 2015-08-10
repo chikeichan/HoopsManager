@@ -1,4 +1,5 @@
 Trio.Module.export('pieContainerStyle', function() {
+    var themeColor = Trio.Stylizer.getVariable('theme-color');
     var style = {
       ':host': {
         'display': 'flex',
@@ -20,7 +21,7 @@ Trio.Module.export('pieContainerStyle', function() {
         'height': '100%',
         'transform-origin': '100% 50%',
         'position': 'absolute',
-        'background': 'rgba(0, 184, 255, 1)',
+        'background': themeColor,
       },
 
       '.spinner, .mask': {

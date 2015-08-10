@@ -1,7 +1,7 @@
 Trio.Module.import({
     'resources': './src/resources/index.js',
+    'components': './src/components/index.js',
     'variables': './src/style/variables.js',
-    'components': './src/components/index.js'
 })
 
 .and.import({
