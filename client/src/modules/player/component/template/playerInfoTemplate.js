@@ -9,7 +9,8 @@ Trio.Module.export('playerInfoTemplate', function() {
                     .create('div.value').text(tagValue).append()
                 .append()
             .done()
-        .appendLast()
+        .append()
+        .create('hoop-pie-container').addClass('stat-meter').appendLast()
 
     return tmpl;
 

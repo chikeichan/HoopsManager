@@ -5,6 +5,5 @@ Trio.Module.export('miniInfoBoxTemplate', function() {
             .create('div.title').append()
             .create('div.value').append()
         .appendLast()
-        window.tmpl = tmpl
     return tmpl;
 });

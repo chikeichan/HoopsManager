@@ -2,6 +2,7 @@ Trio.Module.export('playerStyle', function() {
     var style = {
         'div.avatar': {
             'width': '240px',
+            'min-width': '240px',
             'height': '240px',
             'background-repeat': 'no-repeat',
             'background-position': '40% 50%'
@@ -12,6 +13,7 @@ Trio.Module.export('playerStyle', function() {
             'margin': '12px',
             'height': '200px',
             'width': '300px',
+            'min-width': '300px',
             'align-items': 'flex-start'
         },
         'div.value': {
@@ -34,6 +36,13 @@ Trio.Module.export('playerStyle', function() {
             'margin': '8px 16px',
             'flex-flow': 'column nowrap',
             'align-items': 'flex-start'
+        },
+        'hoop-pie-container': {
+            'flex-direction': 'row',
+            'flex': '1 1 auto',
+            'align-items': 'center',
+            'justify-content': 'flex-end',
+            'margin': '16px'
         }
     };
     return style;

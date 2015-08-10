@@ -29,6 +29,23 @@ Trio.Module.import({
         renderPlayerInfo: function(data) {
             this.content.innerHTML = '';
             this.content.appendChild(ret.playerInfoTemplate.render(data));
+            this.statMeter = this.shadowRoot.querySelector('.stat-meter');
+        },
+        renderOverallAttributes: function(percent) {
+            var i = 0;
+            var j = 0;
+            var tick = setInterval(function() {
+                i = i + Math.sin(j);
+                j = j + (0.02 / (percent/100));
+                if (i >= percent - 0.1) {
+                    this.statMeter.setPercentage(percent);
+                    this.statMeter.content.textContent = percent;
+                    clearInterval(tick)
+                    return;
+                }
+                this.statMeter.content.textContent = Math.floor(i);
+                this.statMeter.setPercentage(i);
+            }.bind(this), 16)
         }
     });
 });
