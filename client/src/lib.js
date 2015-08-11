@@ -1,1 +1,1 @@
-window.Trio = require('trio');
+require('trio');

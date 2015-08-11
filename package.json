@@ -16,6 +16,6 @@
   "dependencies": {
     "browserify": "^11.0.0",
     "express": "^4.13.1",
-    "trio": "^0.0.2"
+    "trio": "^0.1.0"
   }
 }
