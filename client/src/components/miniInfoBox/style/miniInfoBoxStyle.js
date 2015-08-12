@@ -20,7 +20,9 @@ Trio.Module.export('miniInfoBoxStyle', function() {
           'align-items': 'center',
           'border-top-right-radius': '2px',
           'border-top-left-radius': '2px',
-          'padding': '8px 16px'
+          'padding': '8px 16px',
+          'min-height': '16px',
+          'min-width': '32px'
       },
       'div.value': {
           'display': 'flex',
@@ -29,7 +31,9 @@ Trio.Module.export('miniInfoBoxStyle', function() {
           'flex-flow': 'column nowrap',
           'align-items': 'center',
           'border-radius': '2px',
-          'padding': '8px 24px'
+          'padding': '8px 24px',
+          'min-height': '16px',
+          'min-width': '32px'
       }
     };
 

@@ -17,4 +17,5 @@ Trio.Module.export('variables', function() {
 
     Trio.Stylizer.registerVariables('header-color', 'rgba(0, 0, 0, 0.7)');
     Trio.Stylizer.registerVariables('theme-color', '#00B8FF');
+    // Trio.Stylizer.registerVariables('theme-color', '#C973C2');
 });

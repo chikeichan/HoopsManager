@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify client/src/lib.js -o client/build/lib.js -d"
+    "build": "browserify client/src/lib.js -o client/build/lib.js -d",
+    "watch": "watchify client/src/lib.js -o client/build/lib.js -d"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +18,8 @@
     "browserify": "^11.0.0",
     "express": "^4.13.1",
     "trio": "^0.1.0"
+  },
+  "devDependencies": {
+    "watchify": "^3.3.1"
   }
 }

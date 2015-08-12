@@ -1,12 +1,12 @@
 Trio.Module.export('playerInfoTemplate', function() {
     var tmpl = Trio.Renderer.createTemplate();
 
-    tmpl.create('div.avatar').style('background-image', getURL).append()
-        .create('div.attributes')
+    tmpl.create('div.avatar').append()
+        .create('div.player-info')
             .each(getAttributes)
                 .create('div.attribute')
                     .create('div.tag').text(tagName).append()
-                    .create('div.value').text(tagValue).append()
+                    .create('div.value').append()
                 .append()
             .done()
         .append()
@@ -15,18 +15,10 @@ Trio.Module.export('playerInfoTemplate', function() {
     return tmpl;
 
     function tagName(d) {
-        return d.name;
-    }
-
-    function tagValue(d) {
-        return d.val;
+        return d;
     }
 
     function getAttributes(d) {
-        return d.attributes;
-    }
-
-    function getURL(d) {
-        return 'url(' + d.avatarUrl + ')';
+        return d;
     }
 });

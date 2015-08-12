@@ -7,10 +7,10 @@ Trio.Module.export('playerService', function() {
 
         },
         updateInfo: function() {
-            this.component.changeTitle(this.factory.fullTitle);
-            this.component.renderMiniInfo(this.factory.vital);
-            this.component.renderPlayerInfo(this.factory.playerInfo);
-            this.component.renderOverallAttributes(98);
+            this.component.updateTitle(this.factory.fullTitle);
+            this.component.updateMiniInfo(this.factory.vital);
+            this.component.updatePlayerInfo(this.factory.playerInfo);
+            this.component.updateOverallAttributes(this.factory.playerAttributes.overall);
         }
     });
 

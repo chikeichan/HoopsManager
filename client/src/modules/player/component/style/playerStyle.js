@@ -5,9 +5,10 @@ Trio.Module.export('playerStyle', function() {
             'min-width': '240px',
             'height': '240px',
             'background-repeat': 'no-repeat',
-            'background-position': '40% 50%'
+            'background-position': '40% 50%',
+            'background-size': 'contain'
         },
-        'div.attributes': {
+        'div.player-info': {
             'display': 'flex',
             'flex-flow': 'column wrap',
             'margin': '12px',
