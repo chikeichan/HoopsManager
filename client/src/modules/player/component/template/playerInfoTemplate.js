@@ -3,14 +3,15 @@ Trio.Module.export('playerInfoTemplate', function() {
 
     tmpl.create('div.avatar').append()
         .create('div.player-info')
-            .each(getAttributes)
+            .each(attrTags)
                 .create('div.attribute')
                     .create('div.tag').text(tagName).append()
                     .create('div.value').append()
                 .append()
             .done()
         .append()
-        .create('hoop-pie-container').addClass('stat-meter').appendLast()
+        .create('hoop-pie-container').addClass('stat-meter').append()
+        .create('div').addClass('stat-wrapper').appendLast()
 
     return tmpl;
 
@@ -18,7 +19,7 @@ Trio.Module.export('playerInfoTemplate', function() {
         return d;
     }
 
-    function getAttributes(d) {
-        return d;
+    function attrTags() {
+        return ['POSITION','TEAM','MORALE','FATIGUE','SALARY','CONTRACT'];
     }
 });

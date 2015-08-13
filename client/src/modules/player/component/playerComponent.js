@@ -14,7 +14,7 @@ Trio.Module.import({
 
         render: function() {
             this.subheader.appendChild(ret.playerMiniBoxTemplate.render());
-            this.content.appendChild(ret.playerInfoTemplate.render(['POSITION','TEAM','MORALE','FATIGUE','SALARY','CONTRACT']));
+            this.content.appendChild(ret.playerInfoTemplate.render());
             this.statMeter = this.shadowRoot.querySelector('.stat-meter');
             this.avatar = this.shadowRoot.querySelector('.avatar');
             this.playerInfo = this.shadowRoot.querySelector('.player-info')
